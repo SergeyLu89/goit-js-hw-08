@@ -1,9 +1,9 @@
 import Player from '@vimeo/player';
 var throttle = require('lodash.throttle');
 
-const vimeoPlyer = document.querySelector('#vimeo-player');
+const vimeoPlayer = document.querySelector('#vimeo-player');
 
-const player = new Player(vimeoPlyer);
+const player = new Player(vimeoPlayer);
 
 player.on(
   'timeupdate',
@@ -14,9 +14,7 @@ player.on(
 
 player
   .setCurrentTime(localStorage.getItem('videoplayer-current-time'))
-  .then(function (seconds) {
-    console.log(seconds);
-  })
+  .then(function (seconds) {})
   .catch(function (error) {
     switch (error.name) {
       case 'RangeError':
