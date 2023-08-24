@@ -14,27 +14,14 @@ player.on(
     );
   }, 1000)
 );
-const playerCurrentTime = JSON.parse(
-  localStorage.getItem('videoplayer-current-time')
-);
-console.log(playerCurrentTime);
-function checkPlayerCurrentTime() {
-  if (playerCurrentTime !== 0) {
+
+try {
+  const playerCurrentTime = JSON.parse(
+    localStorage.getItem('videoplayer-current-time')
+  );
+  if (playerCurrentTime) {
     player.setCurrentTime(playerCurrentTime);
   }
+} catch (error) {
+  console.error(error.name);
 }
-checkPlayerCurrentTime(playerCurrentTime);
-// player
-//   .setCurrentTime(localStorage.getItem('videoplayer-current-time'))
-//   .then(function (seconds) {})
-//   .catch(function (error) {
-//     switch (error.name) {
-//       case 'RangeError':
-//         // the time was less than 0 or greater than the video’s duration
-//         break;
-
-//       default:
-//         // some other error occurred
-//         break;
-//     }
-//   });
